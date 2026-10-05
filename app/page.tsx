@@ -1,111 +1,202 @@
 const services = [
-  { n: "01", title: "Website Bisnis", text: "Landing page dan company profile yang rapi, cepat, responsif, dan punya arah komunikasi yang jelas." },
-  { n: "02", title: "Quick Fix", text: "Perbaikan kecil untuk responsive, layout, bug, deployment, atau masalah website yang mengganggu." },
-  { n: "03", title: "Maintenance", text: "Bantuan setelah website live: bug fixing, perubahan kecil, deployment, dan pengembangan bertahap." },
+  { n: "01", kicker: "BUILD", title: "Website bisnis", text: "Landing page, company profile, dan website brand yang membuat bisnis terlihat siap dipercaya." },
+  { n: "02", kicker: "FIX", title: "Website yang bermasalah", text: "Responsive berantakan, bug, layout, deployment, atau detail kecil yang mengganggu pengalaman pengguna." },
+  { n: "03", kicker: "EVOLVE", title: "Setelah website live", text: "Maintenance, perubahan kecil, fitur bertahap, dan bantuan teknis tanpa harus membangun ulang semuanya." },
 ];
 
-const process = ["Konsultasi kebutuhan", "Scope + harga jelas", "DP & development", "Preview + revisi", "Handover", "Support setelah live"];
+const process = [
+  { n: "01", title: "DISCOVER", text: "Pahami bisnis, kebutuhan, dan masalah yang benar-benar perlu diselesaikan." },
+  { n: "02", title: "DEFINE", text: "Tentukan scope, halaman, biaya, timeline, dan batas revisi sebelum mulai." },
+  { n: "03", title: "BUILD", text: "Desain dan development dikerjakan dengan fokus pada struktur dan pengalaman." },
+  { n: "04", title: "REFINE", text: "Preview, testing, responsive check, lalu revisi yang memang diperlukan." },
+  { n: "05", title: "LAUNCH", text: "Deployment, handover, dan memastikan website siap dipakai." },
+];
 
 const fitFor = [
-  "Brand & UMKM yang butuh website profesional",
-  "Bisnis yang ingin punya landing page / company profile",
-  "Pemilik website yang punya bug atau tampilan mobile bermasalah",
+  "Brand & UMKM yang ingin terlihat lebih profesional",
+  "Bisnis yang butuh landing page atau company profile",
+  "Pemilik website yang punya masalah responsive atau bug",
   "Bisnis yang butuh bantuan deployment, domain, atau perubahan kecil",
-];
-
-const principles = [
-  { title: "Scope jelas", text: "Fitur, halaman, revisi, timeline, dan hasil akhir dibicarakan sebelum mulai." },
-  { title: "Komunikasi terbuka", text: "Kalau ada kendala teknis atau perubahan kebutuhan, dibahas dulu—bukan tiba-tiba muncul di akhir." },
-  { title: "Bisa dilanjutkan", text: "Setelah live, website tetap bisa dirawat dan dikembangkan bertahap sesuai kebutuhan bisnis." },
 ];
 
 export default function Home() {
   return (
     <main>
-      <nav className="nav">
+      <nav className="nav wrap">
         <a className="brand" href="#">JABAR<span>.</span></a>
         <div className="navRight">
-          <span className="availability">AVAILABLE FOR SELECT PROJECTS</span>
-          <a className="navLink" href="#contact">Mari ngobrol <span>↗</span></a>
+          <span className="availability">INDEPENDENT WEB DEVELOPER · KARAWANG</span>
+          <a className="navLink" href="#contact">Let's talk <span>↗</span></a>
         </div>
       </nav>
 
       <section className="hero wrap">
-        <div className="heroMeta">
-          <p className="eyebrow">WEB DEVELOPER · KARAWANG · ID</p>
-          <span className="heroIndex">01—06</span>
+        <div className="heroTop">
+          <div>
+            <p className="eyebrow">WEB DEVELOPER · 2026</p>
+            <p className="heroLocation">KARAWANG, WEST JAVA / ID</p>
+          </div>
+          <span className="heroIndex">01—05</span>
         </div>
-        <h1>Website yang terlihat<br /><em>seperti bisnis yang serius.</em></h1>
+
+        <div className="heroStatement">
+          <p className="heroSmall">I BUILD WEBSITES<br />FOR BUSINESSES THAT<br />WANT TO BE TAKEN SERIOUSLY.</p>
+          <h1>Jabar<br /><em>Sidik.</em></h1>
+        </div>
+
         <div className="heroBottom">
-          <p className="lead">Saya Jabar Sidik. Saya membantu bisnis membangun, memperbaiki, dan merawat website yang jelas, responsif, dan siap dipakai.</p>
-          <div className="actions">
-            <a className="button primary" href="#work">Lihat pekerjaan <span>↗</span></a>
-            <a className="button ghost" href="#process">Cara kerja <span>↓</span></a>
-          </div>
+          <p className="lead">Saya membantu bisnis membangun, memperbaiki, dan merawat website yang jelas, responsif, dan punya tujuan.</p>
+          <a className="circleLink" href="#work"><span>Selected<br />work</span><b>↓</b></a>
         </div>
       </section>
 
-      <section id="work" className="section workSection wrap">
-        <div className="sectionHead"><p className="eyebrow">01 / SELECTED WORK</p><p className="muted">Real client project</p></div>
-        <article className="case">
-          <div className="caseVisual">
-            <div className="caseChrome"><span>CLIENT PROJECT</span><span>01</span></div>
-            <div className="caseBrand">LORD<span>CORPS</span></div>
-            <div className="caseVisualBottom"><span>E-COMMERCE</span><span>FASHION / CLOTHING</span></div>
-          </div>
-          <div className="caseInfo">
-            <div className="caseTitle"><span className="caseNo">01</span><h2>LORDCORPS</h2></div>
-            <div className="caseDetails">
-              <div><p className="detailLabel">PROJECT</p><p className="caseTag">Website e-commerce untuk brand clothing.</p></div>
-              <div><p className="detailLabel">ROLE</p><p className="caseText">Pengembangan dan perbaikan production website dengan alur katalog, checkout, pembayaran, shipping, dan kebutuhan admin.</p></div>
-            </div>
-            <div className="caseFoot"><span>Next.js · MongoDB · Cloudinary · Midtrans</span><span className="note">Public case study mengikuti izin owner.</span></div>
-          </div>
-        </article>
-      </section>
-
-      <section className="section servicesSection wrap">
-        <div className="sectionHead"><p className="eyebrow">02 / SERVICES</p><p className="muted">Focused solutions</p></div>
-        <div className="serviceGrid">{services.map(s => <div className="service" key={s.n}><span>{s.n}</span><h3>{s.title}</h3><p>{s.text}</p><span className="serviceArrow">↗</span></div>)}</div>
-      </section>
-
-      <section className="section wrap fitSection">
-        <div className="sectionHead"><p className="eyebrow">03 / FIT</p><p className="muted">Maybe we're a fit.</p></div>
-        <div className="fitGrid">
-          <div><p className="statementNo">03</p><h2>Kalau masalahnya ada di website, <em>kita mulai dari masalahnya.</em></h2><p className="sectionCopy">Tidak semua bisnis membutuhkan website yang besar. Kadang yang dibutuhkan hanya halaman yang lebih meyakinkan, tampilan mobile yang beres, atau perbaikan kecil yang selama ini mengganggu.</p></div>
-          <div className="fitList">{fitFor.map((x, i) => <div className="fitItem" key={x}><span>0{i + 1}</span><strong>{x}</strong><b>↗</b></div>)}</div>
-        </div>
-      </section>
-
-      <section id="process" className="section processSection">
+      <section id="work" className="workSection">
         <div className="wrap">
-          <div className="sectionHead"><p className="eyebrow">04 / PROCESS</p><p className="muted">No mystery.</p></div>
-          <div className="processIntro"><h2>Jelas dari awal.<br /><em>Tenang sampai selesai.</em></h2><p>Scope, biaya, revisi, dan hasil akhir dibicarakan sebelum pekerjaan dimulai. Setelah website live, komunikasi tidak berhenti.</p></div>
-          <div className="processGrid">{process.map((x, i) => <div className="step" key={x}><span>0{i + 1}</span><strong>{x}</strong></div>)}</div>
+          <div className="sectionHead">
+            <p className="eyebrow">01 / SELECTED WORK</p>
+            <p className="muted">REAL CLIENT PROJECT</p>
+          </div>
+
+          <article className="case">
+            <div className="caseVisual">
+              <div className="caseFrame">
+                <div className="frameTop"><span>01 / CLIENT PROJECT</span><span>ECOMMERCE</span></div>
+                <div className="frameCenter">
+                  <span className="frameEyebrow">CLOTHING / DIGITAL STORE</span>
+                  <strong>LORD<br /><i>CORPS</i></strong>
+                  <span className="frameLine">A PRODUCTION WEB PROJECT</span>
+                </div>
+                <div className="frameBottom"><span>NEXT.JS</span><span>MIDTRANS</span><span>MONGODB</span><span>CLOUDINARY</span></div>
+              </div>
+            </div>
+
+            <div className="caseInfo">
+              <div className="caseTop">
+                <span className="caseNo">CASE / 001</span>
+                <span className="caseStatus">CLIENT PROJECT</span>
+              </div>
+              <h2>LORD<span>CORPS</span></h2>
+              <p className="caseIntro">Website e-commerce untuk brand clothing. Sebuah project production dengan kebutuhan katalog, checkout, pembayaran, shipping, dan kebutuhan admin.</p>
+              <div className="caseFacts">
+                <div><span>ROLE</span><strong>Web development</strong></div>
+                <div><span>STACK</span><strong>Next.js / MongoDB / Midtrans</strong></div>
+                <div><span>STATUS</span><strong>Production project</strong></div>
+              </div>
+              <p className="caseNote">Detail case study publik, screenshot, dan live link akan ditampilkan setelah mendapat izin owner.</p>
+            </div>
+          </article>
+
+          <div className="workCaption">
+            <span>ONE REAL PROJECT IS BETTER THAN TEN CLAIMS.</span>
+            <span>More work will be added as projects are completed.</span>
+          </div>
         </div>
       </section>
 
-      <section className="section principles wrap">
-        <div className="sectionHead"><p className="eyebrow">05 / PRINCIPLES</p><p className="muted">How I work.</p></div>
-        <div className="principleGrid">{principles.map((x, i) => <div className="principle" key={x.title}><span>0{i + 1}</span><h3>{x.title}</h3><p>{x.text}</p></div>)}</div>
+      <section className="manifesto wrap">
+        <p className="eyebrow">02 / APPROACH</p>
+        <div className="manifestoGrid">
+          <h2>Website bukan sekadar<br /><em>“jadi online”.</em></h2>
+          <div>
+            <p>Orang pertama kali melihat bisnis Anda sering kali lewat layar. Karena itu, website harus terasa jelas, meyakinkan, dan masuk akal untuk dipakai.</p>
+            <p>Saya tidak mengejar website yang ramai. Saya mengejar website yang punya alasan di balik setiap bagian.</p>
+          </div>
+        </div>
+      </section>
+
+      <section className="services wrap">
+        <div className="sectionHead">
+          <p className="eyebrow">03 / SERVICES</p>
+          <p className="muted">BUILD / FIX / EVOLVE</p>
+        </div>
+        <div className="serviceList">
+          {services.map((s) => (
+            <article className="service" key={s.n}>
+              <div className="serviceNo">{s.n}</div>
+              <div className="serviceKicker">{s.kicker}</div>
+              <h3>{s.title}</h3>
+              <p>{s.text}</p>
+              <span className="serviceArrow">↗</span>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="fit wrap">
+        <div className="sectionHead">
+          <p className="eyebrow">04 / FIT</p>
+          <p className="muted">IS THIS FOR YOU?</p>
+        </div>
+        <div className="fitGrid">
+          <div>
+            <span className="bigNumber">04</span>
+            <h2>Mulai dari masalahnya.<br /><em>Bukan dari fiturnya.</em></h2>
+          </div>
+          <div className="fitList">
+            {fitFor.map((item, i) => (
+              <div className="fitItem" key={item}>
+                <span>0{i + 1}</span>
+                <strong>{item}</strong>
+                <b>↗</b>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="process">
+        <div className="wrap">
+          <div className="sectionHead">
+            <p className="eyebrow">05 / PROCESS</p>
+            <p className="muted">FROM IDEA TO LIVE</p>
+          </div>
+          <div className="processLead">
+            <h2>Clear enough<br /><em>to trust.</em></h2>
+            <p>Scope, biaya, revisi, dan hasil akhir dibicarakan sebelum pekerjaan dimulai. Tidak ada kejutan yang sengaja disimpan sampai akhir.</p>
+          </div>
+          <div className="processList">
+            {process.map((item) => (
+              <div className="processItem" key={item.n}>
+                <span className="processNo">{item.n}</span>
+                <h3>{item.title}</h3>
+                <p>{item.text}</p>
+                <span className="processMark">+</span>
+              </div>
+            ))}
+          </div>
+        </div>
       </section>
 
       <section className="trust wrap">
-        <div><p className="eyebrow">WHY WORK WITH ME</p><h2>Bangun dulu<br /><em>kepercayaan.</em></h2></div>
-        <div className="trustText"><p className="trustLead">Baru bangun websitenya.</p><p>Anda tidak perlu menebak siapa yang mengerjakan website, apa yang akan dikerjakan, atau kapan pekerjaan dianggap selesai.</p><p>Saya lebih suka proses yang sederhana: kebutuhan jelas, scope jelas, komunikasi terbuka, lalu website dikerjakan dan dirawat secara bertahap.</p></div>
+        <div className="trustMark">J / S</div>
+        <div className="trustCopy">
+          <p className="eyebrow">THE PROMISE</p>
+          <h2>Serius di awal.<br /><em>Tetap ada setelah live.</em></h2>
+          <p>Website bisa selesai dalam beberapa minggu. Hubungan dengan orang yang mengerjakannya seharusnya tidak hilang setelah tombol publish ditekan.</p>
+          <div className="trustTags"><span>Clear scope</span><span>Open communication</span><span>After-launch support</span></div>
+        </div>
       </section>
 
       <section id="contact" className="contact">
         <div className="wrap contactInner">
-          <div className="contactTop"><p className="eyebrow">06 / CONTACT</p><span>LET'S MAKE IT CLEAR</span></div>
-          <h2>Punya website yang ingin<br /><em>dibangun atau dibereskan?</em></h2>
-          <p className="lead">Ceritakan masalah atau kebutuhan Anda. Kita lihat dulu apakah saya bisa membantu.</p>
-          <div className="contactLinks"><a href="mailto:jabar.sidik0617@gmail.com">jabar.sidik0617@gmail.com <span>↗</span></a><a href="https://wa.me/6289655606307">WhatsApp <span>↗</span></a></div>
-          <p className="contactMeta">Tidak yakin kebutuhan Anda masuk scope yang mana? Tidak masalah. Kirim konteks singkat dulu, lalu kita tentukan langkah yang paling masuk akal.</p>
+          <div className="contactMetaTop">
+            <span className="eyebrow">LET'S MAKE SOMETHING USEFUL</span>
+            <span>AVAILABLE FOR SELECT PROJECTS</span>
+          </div>
+          <h2>Have something that<br /><em>needs to look more serious?</em></h2>
+          <p className="contactLead">Ceritakan kebutuhan, masalah, atau ide Anda. Kita lihat dulu apakah saya orang yang tepat untuk mengerjakannya.</p>
+          <div className="contactLinks">
+            <a href="mailto:jabar.sidik0617@gmail.com">jabar.sidik0617@gmail.com <span>↗</span></a>
+            <a href="https://wa.me/6289655606307">WhatsApp <span>↗</span></a>
+          </div>
         </div>
       </section>
 
-      <footer className="footer wrap"><span>© 2026 Jabar Sidik</span><span>Web Developer · Karawang</span><span>Built with Next.js</span></footer>
+      <footer className="footer wrap">
+        <span>© 2026 Jabar Sidik</span>
+        <span>Web Developer · Karawang</span>
+        <span>Built with Next.js</span>
+      </footer>
     </main>
   );
 }
